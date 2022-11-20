@@ -1,0 +1,9 @@
+FROM tomcat:8.0-alpine
+LABEL maintainer=”gowthamkego”
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get install -y ant && \
+    apt-get clean;
+ADD Dockerfile.war /usr/local/tomcat/webapps/
+EXPOSE 8080
+
